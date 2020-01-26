@@ -1,8 +1,7 @@
 
-import Welcome from './containers/signup/Welcome.component';
+// import Welcome from './containers/signup/Welcome.component';
 
 
-export default App;
 import React from 'react';
 import './App.css';
 import SignUp from './containers/SignUp/SignUp';
@@ -18,7 +17,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import requireAuth from './hoc/requireAuth';
 import requireNotAuth from './hoc/requireNotAuth';
 
-import PopUp from './containers/PopUp.js';
+// import PopUp from './containers/PopUp.js';
 
 
 class App extends React.Component {
@@ -26,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-              <Welcome/>
+              {/* <Welcome/> */}
 
         <MuiThemeProvider  >
           <Grid container alignItems='center' style={{ height: '100%' }}>
@@ -47,7 +46,7 @@ class App extends React.Component {
                         <Route path='/Profile' component={requireAuth(Profile)} />
                       </Switch>
                     </BrowserRouter>
-                    <PopUp/>
+                    {/* <PopUp/> */}
                   </Grid>
                   
                 </Grid>

@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    background-color: #fcb571;
+    font-family: tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px 25px 0 0;
+    color: #393B45;
+    padding: 30px 0;
+    font-weight: 800;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 45px;
+}
+
+.image-crop {
+    display: block;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px rgb(23, 23, 24);
+}
+
+#avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+#bio {
+    display: block;
+    margin: 30px auto;
+    width: 350px;
+    height: auto;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+#buttons {
+    display: flex;
+    /* margin: 0; */
+    justify-content: center;
+    width: 100%;
+}
+
+button {
+    display: block;
+    position: relative;
+    padding: 7px 0;
+    width: 130px;
+    margin: 30px 0;
+    border-radius: 25px;
+    border: none;
+    font-size: 25px;
+    letter-spacing: 0.2px;
+    font-weight: bold;
+    background-color: rgb(226, 64, 64);
+    color: rgb(255, 255, 255);
+}
+
+button:focus {
+    display: none;
+}
+
+.link {
+    text-decoration: none;
+}
+
+button:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
