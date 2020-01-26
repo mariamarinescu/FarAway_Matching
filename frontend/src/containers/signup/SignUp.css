@@ -1,0 +1,61 @@
+.title {
+    color: rgba(124, 124, 124, 0.76);
+    /* padding-bottom: 10%; */
+    width: 90%;
+}
+
+.formfields {
+    padding-bottom: 20px;
+    align-content: flex-end;
+}
+
+.textfields {
+    height: 40px;
+    width: 90%;
+    border-radius: 20px;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    -webkit-box-shadow: 0px 0px 19px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 19px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 19px -5px rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+}
+
+.btn {
+    height: 40px;
+    width: 90%;
+    border-radius: 20px;
+    margin-top: 30px;
+    text-align: center;
+    border: none;
+    -webkit-box-shadow: 0px 0px 19px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 19px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 19px -5px rgba(0, 0, 0, 0.75);
+    background-color: #4CAF50;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #3e8e41
+}
+
+.btn:active {
+    background-color: #3e8e41;
+    transform: translateY(4px);
+}
+
+.email:focus,
+input:focus {
+    outline: none;
+}
+
+input {
+    background-color: white;
+}
+
+.formfields {
+    display: grid;
+}

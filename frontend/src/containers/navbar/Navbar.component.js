@@ -3,7 +3,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import { useAuth0 } from "../../react-auth0-spa";
 import {Button} from 'react-bootstrap'
-import Welcome from '../Welcome.component'
+import Welcome from '../signup/Welcome.component'
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout} = useAuth0();

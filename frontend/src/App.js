@@ -1,40 +1,64 @@
-import React from "react";
-import NavBar from "./components/navbar/Navbar.component";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../src/'
 
-// New - import the React Router components, and the Profile page component
-import { Router, Route, Switch } from "react-router-dom";
-import Profile from "./components/profile/Profile.component";
-import history from "./utils/history";
-import PrivateRoute from "./components/PrivateRoute";
-import Welcome from './components/Welcome.component';
-import Home from './components/Card.component';
-import Card from './components/Card.component';
+import Welcome from './containers/signup/Welcome.component';
 
 
+export default App;
+import React from 'react';
+import './App.css';
+import SignUp from './containers/SignUp/SignUp';
+import SignIn from './containers/SignIn/SignIn';
+import Profile from './containers/Profile/Profile';
+
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import { Grid, Paper } from '@material-ui/core';
+// import { Snackbar } from '@material-ui/core';
+// import { Alert } from '@material-ui/lab';
+
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import requireAuth from './hoc/requireAuth';
+import requireNotAuth from './hoc/requireNotAuth';
+
+import PopUp from './containers/PopUp.js';
 
 
-const  App = ()  => {
+class App extends React.Component {
 
-  return (
-    <div className="App">
-      <Router history={history}>
-      <Welcome/>
-        <header>
-          <NavBar />
-        </header>
-        <Switch>
-          <Route path="/" exact/>
-          <Route path="/profile" component={Profile} />
-          <PrivateRoute path="/profile" component={Profile} />
-          <Route path="/home" component={Home} />
-    
-        </Switch>
+  render() {
+    return (
+      <div className="App">
+              <Welcome/>
 
-      </Router>
-    </div>
-  );
+        <MuiThemeProvider  >
+          <Grid container alignItems='center' style={{ height: '100%' }}>
+            <Grid item xs={12} >
+              <Paper elevation={4} style={{ margin: 32 }}>
+                <Grid container alignItems='center' justify='center' >
+
+                  <Grid item xs={12} sm={6} style={{ 'text-align': 'center' }}>
+                    <img alt='img' src="http://images.innoveduc.fr/react_odyssey_homer/wildhomer.png" />
+                  </Grid>
+
+                  <Grid item xs={12} sm={6} alignContent='center' style={{ 'text-align': 'center' }}  >
+                    <BrowserRouter>
+                      <Switch>
+                        <Redirect exact from='/' to='/profile' />
+                        <Route path='/SignIn' component={requireNotAuth(SignIn)} />
+                        <Route path='/SignUp' component={requireNotAuth(SignUp)} />
+                        <Route path='/Profile' component={requireAuth(Profile)} />
+                      </Switch>
+                    </BrowserRouter>
+                    <PopUp/>
+                  </Grid>
+                  
+                </Grid>
+              </Paper>
+            </Grid>
+          </Grid>
+        </MuiThemeProvider>
+
+      </div>
+    );
+  }
 }
 
 export default App;
