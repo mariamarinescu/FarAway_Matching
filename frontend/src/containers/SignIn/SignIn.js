@@ -1,12 +1,8 @@
-import React from 'react';
-import './SignIn.css';
-import { Link } from "react-router-dom";
-// import { Snackbar} from '@material-ui/core';
-// import { Alert } from '@material-ui/lab';
-import { connect } from 'react-redux';
+import React from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import {connect} from 'react-redux'
 
 class SignIn extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -72,38 +68,56 @@ class SignIn extends React.Component {
     //     this.setState({ open: false });
     // };
 
-
-    render() {
-        return (
-            <div>
-
-                <form className='formfields' onSubmit={this.handleSubmit}>
-
-                    <input className='textfields' value={this.state.email} placeholder="E-mail" onChange={this.updateEmailField} type="email" name="email" />
-                    <input className='textfields' value={this.state.password} placeholder="Password" onChange={this.updatePasswordField} type="password" name="password" />
-                    <input className='btn' type="submit" value="Sign In" />
-                    <br></br>
-                    <h5>Press <Link to="/SignUp">here</Link> to register!</h5>
-
-                    {/* <Snackbar style={{ 'top': '-27rem' }} open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
-                        <Alert onClose={this.handleClose} severity={this.state.flash === 'Sign in succesful!' ? "success" : "error"} variant="filled">
-                            {this.state.flash}
-                        </Alert>
-                    </Snackbar> */}
-
-
-                </form>
-
-            </div>
-        )
-    }
+  render() {
+  return (
+    <MDBContainer>
+      <MDBRow>
+        <MDBCol md="6">
+          <MDBCard>
+            <MDBCardBody>
+              <form onSubmit={this.handleSubmit}> 
+                <p className="h4 text-center py-4">Sign In</p>
+                <div className="grey-text">
+               
+                  <MDBInput
+                    label="Your email"
+                    icon="envelope"
+                    group
+                    type="email"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={this.updateEmailField}
+                  />
+                
+                  <MDBInput
+                    label="Your password"
+                    icon="lock"
+                    group
+                    type="password"
+                    validate
+                    onChange={this.updatePasswordField}
+                  />
+                </div>
+                <div className="text-center py-4 mt-3">
+                  <MDBBtn color="cyan" type="submit">
+                    Log In
+                  </MDBBtn>
+                </div>
+              </form>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
+  );
 }
+};
 
 function mapStateToProps(state) {
-    return {
-        flash: state.auth.token,
-    }
+  return {
+      flash: state.auth.token,
+  }
 };
 
 export default connect(mapStateToProps)(SignIn);
-
